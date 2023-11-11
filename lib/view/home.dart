@@ -63,26 +63,49 @@ class HomePageState extends State<HomePage> {
     loc_gps = LatLng(loc_info["lat"], loc_info["lon"]);
     focus_map = false;
     _List_children = <Widget>[];
-    _List_children.add(Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Center(
+    if (_page == 0) {
+      _List_children.add(Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
             //滑動標示
-            child: Container(
-          width: 40,
-          height: 5,
-          decoration: BoxDecoration(
-            color: Colors.grey[600],
-            borderRadius: BorderRadius.circular(2.5),
+              child: Container(
+                width: 40,
+                height: 5,
+                decoration: BoxDecoration(
+                  color: Colors.grey[600],
+                  borderRadius: BorderRadius.circular(2.5),
+                ),
+              )),
+          Text(
+            "本地一周天氣",
+            style: TextStyle(
+                fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
           ),
-        )),
-        Text(
-          "一周天氣",
-          style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
-        ),
-      ],
-    ));
+        ],
+      ));
+    }else if(_page == 1){
+      _List_children.add(Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            //滑動標示
+              child: Container(
+                width: 40,
+                height: 5,
+                decoration: BoxDecoration(
+                  color: Colors.grey[600],
+                  borderRadius: BorderRadius.circular(2.5),
+                ),
+              )),
+          Text(
+            "今日各地天氣",
+            style: TextStyle(
+                fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
+          ),
+        ],
+      ));
+    }
     if (mounted) setState(() {});
   }
 
