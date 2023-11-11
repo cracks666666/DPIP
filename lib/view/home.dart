@@ -68,40 +68,91 @@ class HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
-            //滑動標示
+              //滑動標示
               child: Container(
-                width: 40,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: Colors.grey[600],
-                  borderRadius: BorderRadius.circular(2.5),
-                ),
-              )),
+            width: 40,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.grey[600],
+              borderRadius: BorderRadius.circular(2.5),
+            ),
+          )),
           Text(
             "本地一周天氣",
             style: TextStyle(
+                fontSize: 32, fontWeight: FontWeight.w100, color: Colors.white),
+          ),
+          Text(
+            "星期一天氣",
+            style: TextStyle(
                 fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(5),
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color(0xff333439), // 灰色背景
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // 元素水平居中
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/partly_cloudy.png', // 使用本地图片作为图标
+                      //color: Colors.white, // 可以根据需要设置颜色
+                      width: 30, // 图标宽度
+                      height: 30, // 图标高度
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      '31°C',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          '降雨機率：20%',
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                        Text(
+                          '濕度：62%',
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ));
-    }else if(_page == 1){
+    } else if (_page == 1) {
       _List_children.add(Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
-            //滑動標示
+              //滑動標示
               child: Container(
-                width: 40,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: Colors.grey[600],
-                  borderRadius: BorderRadius.circular(2.5),
-                ),
-              )),
+            width: 40,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.grey[600],
+              borderRadius: BorderRadius.circular(2.5),
+            ),
+          )),
           Text(
             "今日各地天氣",
             style: TextStyle(
-                fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
+                fontSize: 32, fontWeight: FontWeight.w100, color: Colors.white),
           ),
         ],
       ));
