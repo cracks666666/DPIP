@@ -78,7 +78,7 @@ class HomePageState extends State<HomePage> {
             ),
           )),
           Text(
-            "本地一周天氣",
+            "台南市 關廟區 一周天氣",
             style: TextStyle(
                 fontSize: 32, fontWeight: FontWeight.w100, color: Colors.white),
           ),
@@ -88,6 +88,12 @@ class HomePageState extends State<HomePage> {
                 fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
           ),
           weatherInfoWidget('31°C', '20%', '62%'),
+          Text(
+            "星期二天氣",
+            style: TextStyle(
+                fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
+          ),
+          weatherInfoWidget('40°C', '50%', '42%'),
         ],
       ));
     } else if (_page == 1) {
@@ -109,11 +115,24 @@ class HomePageState extends State<HomePage> {
             style: TextStyle(
                 fontSize: 32, fontWeight: FontWeight.w100, color: Colors.white),
           ),
+          Text(
+            "台北市天氣",
+            style: TextStyle(
+                fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
+          ),
+          weatherInfoWidget('31°C', '20%', '62%'),
+          Text(
+            "新北市天氣",
+            style: TextStyle(
+                fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
+          ),
+          weatherInfoWidget('60°C', '50%', '42%'),
         ],
       ));
     }
     if (mounted) setState(() {});
   }
+
   //天氣
   Widget weatherInfoWidget(String temp, String chanceOfRain, String humidity) {
     return Padding(
@@ -131,14 +150,14 @@ class HomePageState extends State<HomePage> {
               Image.asset(
                 'assets/partly_cloudy.png', // 使用本地图片作为图标
                 //color: Colors.white, // 可以根据需要设置颜色
-                width: 30, // 图标宽度
-                height: 30, // 图标高度
+                width: 60, // 图标宽度
+                height: 60, // 图标高度
               ),
               SizedBox(width: 10),
               Text(
                 temp,
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 45,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
