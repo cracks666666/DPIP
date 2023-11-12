@@ -87,52 +87,7 @@ class HomePageState extends State<HomePage> {
             style: TextStyle(
                 fontSize: 22, fontWeight: FontWeight.w100, color: Colors.white),
           ),
-          Padding(
-            padding: const EdgeInsets.all(5),
-            child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xff333439), // 灰色背景
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center, // 元素水平居中
-                  children: <Widget>[
-                    Image.asset(
-                      'assets/partly_cloudy.png', // 使用本地图片作为图标
-                      //color: Colors.white, // 可以根据需要设置颜色
-                      width: 30, // 图标宽度
-                      height: 30, // 图标高度
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      '31°C',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          '降雨機率：20%',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                        Text(
-                          '濕度：62%',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          weatherInfoWidget('31°C', '20%', '62%'),
         ],
       ));
     } else if (_page == 1) {
@@ -158,6 +113,55 @@ class HomePageState extends State<HomePage> {
       ));
     }
     if (mounted) setState(() {});
+  }
+  //天氣
+  Widget weatherInfoWidget(String temp, String chanceOfRain, String humidity) {
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xff333439), // 灰色背景
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center, // 元素水平居中
+            children: <Widget>[
+              Image.asset(
+                'assets/partly_cloudy.png', // 使用本地图片作为图标
+                //color: Colors.white, // 可以根据需要设置颜色
+                width: 30, // 图标宽度
+                height: 30, // 图标高度
+              ),
+              SizedBox(width: 10),
+              Text(
+                temp,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    '降雨機率：$chanceOfRain',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                  Text(
+                    '濕度：$humidity',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
